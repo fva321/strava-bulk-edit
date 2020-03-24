@@ -56,6 +56,14 @@ let ACTIONS = {
       $$($row, 'visibility').val('everyone')
     }
   },
+  'followers': {
+    condition ($row) {
+      return $$($row, 'visibility').val() !== 'followers_only'
+    },
+    action ($row) {
+      $$($row, 'visibility').val('followers_only')
+    }
+  }
   'private': {
     condition ($row) {
       return $$($row, 'visibility').val() !== 'only_me'
